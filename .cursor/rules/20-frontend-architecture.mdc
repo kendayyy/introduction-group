@@ -1,0 +1,20 @@
+---
+description: Frontend architecture and implementation conventions
+globs: "code/src/**/*.{ts,tsx,css}"
+alwaysApply: false
+---
+
+# Frontend Architecture
+
+- Use Next.js App Router, TypeScript, Tailwind CSS, and CSS variables for design tokens.
+- Prefer Server Components. Add `use client` only for browser state or interaction.
+- Routes fetch and compose data; sections assemble page content; UI components remain CMS-agnostic.
+- Map CMS documents to typed view models at the data boundary.
+- Validate external data before rendering and provide loading, empty, error, and unavailable states.
+- Keep component APIs small. Prefer explicit variants over multiple boolean flags.
+- Use stable aspect ratios and responsive constraints to prevent layout shift.
+- Use `next/image`; define meaningful sizes, alt behavior, and mobile art direction.
+- Use Framer Motion for necessary component motion. Reserve GSAP for approved complex timelines.
+- Respect `prefers-reduced-motion`; avoid autoplay carousels and autoplay video with sound.
+- Keep mobile behavior equal in importance to desktop; never require hover to reveal essential content.
+- Use semantic HTML, visible focus, keyboard support, and WCAG 2.2 AA contrast.

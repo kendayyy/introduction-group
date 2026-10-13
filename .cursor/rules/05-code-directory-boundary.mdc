@@ -1,0 +1,16 @@
+---
+description: Restrict all implementation work to the code directory
+alwaysApply: true
+---
+
+# Code Directory Boundary
+
+- All application code must live under `code/`.
+- Create package manifests, lockfiles, source code, tests, public assets, configs, generated types, build configs, and environment examples only inside `code/`.
+- Run install, development, lint, typecheck, test, build, code generation, and framework commands with `code/` as the working directory.
+- Never create `src/`, `app/`, `public/`, `tests/`, `package.json`, lockfiles, or framework configuration at the workspace root.
+- Files outside `code/` are read-only except `.cursor/**`, which may be updated for rules, specs, task status, and test reports.
+- Do not move, rename, overwrite, or delete the source Word document.
+- Before editing or running a mutating command, confirm the target resolves inside `code/` or `.cursor/`.
+- If a generator writes outside `code/`, stop, clean up only those generated files, and rerun it from `code/`.
+

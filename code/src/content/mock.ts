@@ -1,0 +1,828 @@
+import { logoImage, scene, seoDefaults, wordmark } from "@/content/media";
+import type { RawSite } from "@/content/schema";
+import {
+  careerSlugs,
+  newsSlugs,
+  projectSlugs,
+  sectorSlugs,
+  subsidiarySlugs,
+} from "@/content/slugs";
+
+const source =
+  "Web2Go planning ledger, internal demo reference, 2025";
+
+function seo(title: string, description: string, indexable = true) {
+  return { ...seoDefaults, title, description, indexable };
+}
+
+export const localRawSite: RawSite = {
+  company: [
+    {
+      _id: "company-1",
+      _type: "company",
+      status: "published",
+      name: "Web2Go",
+      description:
+        "Web2Go develops connected web products, business systems, and digital operations for organisations that need clear delivery and dependable handover.",
+      logo: logoImage,
+      seo: seo(
+        "Web2Go",
+        "Trang thông tin tập đoàn Web2Go: lĩnh vực, công ty thành viên, dự án, tuyển dụng và liên hệ.",
+      ),
+    },
+  ],
+  sectors: [
+    {
+      _id: "sector-1",
+      _type: "businessSector",
+      status: "published",
+      slug: sectorSlugs[0],
+      name: "Nền tảng số",
+      excerpt:
+        "Cổng thông tin, ứng dụng web và kênh số dùng chung cho nhân sự, khách hàng và đối tác.",
+      body: "Nhóm nền tảng số xây dựng giao diện, luồng đăng nhập và thư viện thành phần dùng lại. Công việc dừng ở sản phẩm đã bàn giao và tài liệu vận hành, không bao gồm quảng cáo hiệu suất.",
+      image: scene("Màn hình cổng thông tin do Web2Go triển khai"),
+      capabilities: [
+        "Thiết kế thông tin và giao diện web",
+        "Cổng nội bộ và cổng đối tác",
+        "Thư viện thành phần dùng chung",
+      ],
+      companyIds: ["subsidiary-1"],
+      projectIds: ["project-1", "project-4"],
+      statistics: [
+        {
+          value: "9",
+          unit: "cổng đã bàn giao",
+          period: "2023-2025",
+          source,
+        },
+      ],
+      seo: seo(
+        "Nền tảng số | Web2Go",
+        "Lĩnh vực nền tảng số của Web2Go: cổng thông tin, ứng dụng web và thành phần dùng chung.",
+      ),
+    },
+    {
+      _id: "sector-2",
+      _type: "businessSector",
+      status: "published",
+      slug: sectorSlugs[1],
+      name: "Hệ thống doanh nghiệp",
+      excerpt:
+        "Phần mềm nghiệp vụ cho bán hàng, kho và luồng phê duyệt trong tổ chức.",
+      body: "Nhóm hệ thống doanh nghiệp lập mô hình dữ liệu, tích hợp sổ sách hiện có và bàn giao môi trường vận hành. Phạm vi không gồm tư vấn tài chính hay kiểm toán.",
+      image: scene("Bảng điều khiển nghiệp vụ của một hệ thống Web2Go"),
+      capabilities: [
+        "Phân tích quy trình nghiệp vụ",
+        "Tích hợp hệ thống sẵn có",
+        "Bàn giao và đào tạo vận hành",
+      ],
+      companyIds: ["subsidiary-2"],
+      projectIds: ["project-2"],
+      statistics: [
+        {
+          value: "6",
+          unit: "hệ thống nghiệp vụ",
+          period: "2024-2025",
+          source,
+        },
+      ],
+      seo: seo(
+        "Hệ thống doanh nghiệp | Web2Go",
+        "Lĩnh vực hệ thống doanh nghiệp của Web2Go cho bán hàng, kho và phê duyệt.",
+      ),
+    },
+    {
+      _id: "sector-3",
+      _type: "businessSector",
+      status: "published",
+      slug: sectorSlugs[2],
+      name: "Vận hành số",
+      excerpt:
+        "Giám sát, sao lưu và hỗ trợ vận hành các hệ thống đã đưa vào dùng.",
+      body: "Nhóm vận hành số theo dõi sự cố, lịch sao lưu và cửa sổ bảo trì đã thống nhất với khách hàng. Dịch vụ không thay thế trung tâm dữ liệu của bên thứ ba.",
+      image: scene("Phòng theo dõi vận hành hệ thống Web2Go"),
+      capabilities: [
+        "Giám sát sự cố",
+        "Sao lưu theo lịch",
+        "Hỗ trợ trong giờ làm việc",
+      ],
+      companyIds: ["subsidiary-3", "subsidiary-4"],
+      projectIds: ["project-3"],
+      statistics: [
+        {
+          value: "3",
+          unit: "hợp đồng vận hành đang hiệu lực",
+          period: "2025",
+          source,
+        },
+      ],
+      seo: seo(
+        "Vận hành số | Web2Go",
+        "Lĩnh vực vận hành số của Web2Go: giám sát, sao lưu và hỗ trợ hệ thống đã bàn giao.",
+      ),
+    },
+  ],
+  subsidiaries: [
+    {
+      _id: "subsidiary-1",
+      _type: "subsidiary",
+      status: "published",
+      slug: subsidiarySlugs[0],
+      name: "Web2Go Studio",
+      legalName: "Web2Go Studio Company Limited",
+      excerpt: "Đơn vị thiết kế và phát triển cổng thông tin, ứng dụng web.",
+      body: "Web2Go Studio nhận brief, lập cấu trúc thông tin và bàn giao mã nguồn cùng hướng dẫn biên tập cho các cổng thông tin và sản phẩm web.",
+      sectorId: "sector-1",
+      relationshipNote:
+        "Đơn vị phụ trách thiết kế và phát triển nền tảng số trong hệ sinh thái Web2Go.",
+      locations: ["Quận 1, Thành phố Hồ Chí Minh"],
+      email: "studio@web2go.vn",
+      phone: "+84 28 3822 2001",
+      image: scene("Nhóm thiết kế Web2Go Studio"),
+      projectIds: ["project-1", "project-4"],
+      seo: seo(
+        "Web2Go Studio",
+        "Web2Go Studio thiết kế và phát triển cổng thông tin, ứng dụng web cho tập đoàn Web2Go.",
+      ),
+    },
+    {
+      _id: "subsidiary-2",
+      _type: "subsidiary",
+      status: "published",
+      slug: subsidiarySlugs[1],
+      name: "Web2Go Systems",
+      legalName: "Web2Go Systems Company Limited",
+      excerpt: "Đơn vị triển khai phần mềm nghiệp vụ và tích hợp dữ liệu.",
+      body: "Web2Go Systems lập đặc tả quy trình, kết nối hệ thống kế toán hoặc kho sẵn có và bàn giao tài khoản vận hành.",
+      sectorId: "sector-2",
+      relationshipNote:
+        "Đơn vị phụ trách hệ thống nghiệp vụ và tích hợp dữ liệu trong hệ sinh thái Web2Go.",
+      locations: ["Quận 1, Thành phố Hồ Chí Minh"],
+      email: "systems@web2go.vn",
+      phone: "+84 28 3822 2002",
+      image: scene("Buổi bàn giao hệ thống Web2Go Systems"),
+      projectIds: ["project-2"],
+      seo: seo(
+        "Web2Go Systems",
+        "Web2Go Systems triển khai phần mềm nghiệp vụ và tích hợp dữ liệu trong tập đoàn Web2Go.",
+      ),
+    },
+    {
+      _id: "subsidiary-3",
+      _type: "subsidiary",
+      status: "published",
+      slug: subsidiarySlugs[2],
+      name: "Web2Go Cloud",
+      legalName: "Web2Go Cloud Company Limited",
+      excerpt: "Đơn vị giám sát, sao lưu và hỗ trợ hệ thống đã đưa vào dùng.",
+      body: "Web2Go Cloud nhận bàn giao từ Studio hoặc Systems, lập lịch bảo trì và báo cáo sự cố theo tháng.",
+      sectorId: "sector-3",
+      relationshipNote:
+        "Đơn vị phụ trách giám sát, sao lưu và hỗ trợ vận hành hệ thống đã bàn giao.",
+      locations: ["Quận 1, Thành phố Hồ Chí Minh"],
+      email: "cloud@web2go.vn",
+      phone: "+84 28 3822 2003",
+      image: scene("Bảng giám sát của Web2Go Cloud"),
+      projectIds: ["project-3"],
+      seo: seo(
+        "Web2Go Cloud",
+        "Web2Go Cloud giám sát, sao lưu và hỗ trợ các hệ thống Web2Go đã đưa vào dùng.",
+      ),
+    },
+    {
+      _id: "subsidiary-4",
+      _type: "subsidiary",
+      status: "published",
+      slug: subsidiarySlugs[3],
+      name: "Web2Go Labs",
+      legalName: "Web2Go Labs Company Limited",
+      excerpt: "Đơn vị thử nghiệm tích hợp và tài liệu kỹ thuật dùng chung.",
+      body: "Web2Go Labs ghi nhận lỗi tái hiện được, soạn tài liệu kỹ thuật và chuyển kết quả cho Studio, Systems hoặc Cloud.",
+      sectorId: "sector-3",
+      relationshipNote:
+        "Đơn vị thử nghiệm tích hợp và tài liệu kỹ thuật dùng chung cho các nhóm sản phẩm.",
+      locations: ["Quận 1, Thành phố Hồ Chí Minh"],
+      email: "labs@web2go.vn",
+      phone: "+84 28 3822 2004",
+      image: scene("Không gian thử nghiệm Web2Go Labs"),
+      projectIds: [],
+      seo: seo(
+        "Web2Go Labs",
+        "Web2Go Labs thử nghiệm tích hợp và soạn tài liệu kỹ thuật cho tập đoàn Web2Go.",
+      ),
+    },
+  ],
+  projects: [
+    {
+      _id: "project-1",
+      _type: "project",
+      status: "published",
+      slug: projectSlugs[0],
+      title: "Cổng thông tin nội bộ",
+      summary:
+        "Cổng đăng nhập duy nhất cho nhân sự, tin nội bộ và kho tài liệu đã phân quyền.",
+      body: "Dự án thay thế hộp thư gửi file rời bằng một cổng có mục tin, thư mục và nhật ký truy cập. Web2Go Studio bàn giao tháng 11/2024. Web2Go Cloud giữ lịch sao lưu hàng đêm.",
+      sectorId: "sector-1",
+      companyIds: ["subsidiary-1"],
+      location: "Thành phố Hồ Chí Minh",
+      year: "2024",
+      projectStatus: "complete",
+      featured: true,
+      image: scene("Trang chủ cổng thông tin nội bộ"),
+      gallery: [scene("Danh sách tài liệu trên cổng nội bộ")],
+      statistics: [
+        {
+          value: "4",
+          unit: "phòng ban đang dùng",
+          period: "2025",
+          source,
+        },
+      ],
+      relatedIds: ["project-4"],
+      seo: seo(
+        "Cổng thông tin nội bộ | Web2Go",
+        "Dự án cổng thông tin nội bộ do Web2Go Studio bàn giao năm 2024.",
+      ),
+    },
+    {
+      _id: "project-2",
+      _type: "project",
+      status: "published",
+      slug: projectSlugs[1],
+      title: "Hệ thống bán hàng đa kênh",
+      summary:
+        "Sổ đơn hàng chung cho cửa hàng và kênh điện thoại, kèm trạng thái giao.",
+      body: "Dự án gom đơn từ cửa hàng và tổng đài vào một sổ. Web2Go Systems đang chạy giai đoạn hai: đối soát tồn theo ngày. Không phát hành số liệu doanh thu trên trang này.",
+      sectorId: "sector-2",
+      companyIds: ["subsidiary-2"],
+      location: "Thành phố Hồ Chí Minh",
+      year: "2025",
+      projectStatus: "in-progress",
+      featured: true,
+      image: scene("Màn hình sổ đơn hàng đa kênh"),
+      gallery: [scene("Chi tiết một đơn hàng trong hệ thống")],
+      statistics: [],
+      relatedIds: ["project-3"],
+      seo: seo(
+        "Hệ thống bán hàng đa kênh | Web2Go",
+        "Dự án sổ đơn hàng đa kênh do Web2Go Systems triển khai năm 2025.",
+      ),
+    },
+    {
+      _id: "project-3",
+      _type: "project",
+      status: "published",
+      slug: projectSlugs[2],
+      title: "Điều phối kho trung tâm",
+      summary:
+        "Bảng nhập, xuất và vị trí palet cho một kho trung tâm đang vận hành.",
+      body: "Dự án gắn mã vị trí cho palet và in phiếu xuất theo ca. Web2Go Systems bàn giao phần mềm. Web2Go Cloud theo dõi sự cố in và sao lưu.",
+      sectorId: "sector-3",
+      companyIds: ["subsidiary-2", "subsidiary-3"],
+      location: "Bình Dương",
+      year: "2025",
+      projectStatus: "complete",
+      featured: true,
+      image: scene("Bảng vị trí palet tại kho trung tâm"),
+      gallery: [scene("Phiếu xuất kho in từ hệ thống")],
+      statistics: [
+        {
+          value: "1",
+          unit: "kho đang vận hành trên hệ thống",
+          period: "2025",
+          source,
+        },
+      ],
+      relatedIds: ["project-2"],
+      seo: seo(
+        "Điều phối kho trung tâm | Web2Go",
+        "Dự án điều phối kho trung tâm do Web2Go bàn giao năm 2025.",
+      ),
+    },
+    {
+      _id: "project-4",
+      _type: "project",
+      status: "published",
+      slug: projectSlugs[3],
+      title: "Cổng đối tác dịch vụ",
+      summary:
+        "Cổng để đối tác xem hợp đồng, lịch bàn giao và phiếu hỗ trợ đã mở.",
+      body: "Dự án đã công bố phạm vi và lịch kick-off. Web2Go Studio chưa mở môi trường dùng thật. Trạng thái trên trang này là đã công bố, chưa hoàn tất.",
+      sectorId: "sector-1",
+      companyIds: ["subsidiary-1"],
+      location: "Thành phố Hồ Chí Minh",
+      year: "2026",
+      projectStatus: "announced",
+      featured: true,
+      image: scene("Bản phác cổng đối tác dịch vụ"),
+      gallery: [scene("Sơ đồ mục lục cổng đối tác")],
+      statistics: [],
+      relatedIds: ["project-1"],
+      seo: seo(
+        "Cổng đối tác dịch vụ | Web2Go",
+        "Dự án cổng đối tác dịch vụ của Web2Go, công bố năm 2026.",
+      ),
+    },
+  ],
+  news: [
+    {
+      _id: "news-1",
+      _type: "news",
+      status: "published",
+      slug: newsSlugs[0],
+      title: "Web2Go công bố quy trình bàn giao phần mềm",
+      summary:
+        "Web2Go giới thiệu quy trình bốn bước để khách hàng theo dõi phạm vi, bàn giao và hỗ trợ sau triển khai.",
+      body: "Ngày 12/6/2026, Web2Go đăng quy trình bàn giao trên trang tin nội bộ và trang này. Khách hàng nhận biên bản nghiệm thu và danh sách tài khoản. Bài không nêu số hợp đồng hay doanh thu.",
+      category: "Hoạt động",
+      dateLabel: "2026-06-12",
+      author: "Phòng truyền thông Web2Go",
+      image: scene("Trang bìa quy trình bàn giao Web2Go"),
+      relatedIds: ["sector-2"],
+      seo: seo(
+        "Quy trình bàn giao phần mềm | Web2Go",
+        "Web2Go công bố quy trình bàn giao phần mềm gồm khảo sát, bản thử, bàn giao và hỗ trợ 30 ngày.",
+      ),
+    },
+    {
+      _id: "news-2",
+      _type: "news",
+      status: "published",
+      slug: newsSlugs[1],
+      title: "Văn phòng làm việc tại Quận 1 đi vào hoạt động",
+      summary:
+        "Văn phòng làm việc và tiếp khách của Web2Go tại trung tâm Thành phố Hồ Chí Minh.",
+      body: "Ngày 3/3/2025, Web2Go mở cửa văn phòng tại Tầng 8, 123 Nguyễn Huệ, Quận 1, Thành phố Hồ Chí Minh. Không gian được tổ chức cho các nhóm sản phẩm, vận hành và tiếp khách theo lịch hẹn.",
+      category: "Công ty",
+      dateLabel: "2025-03-03",
+      author: "Phòng hành chính Web2Go",
+      image: scene("Sảnh tiếp khách văn phòng Web2Go"),
+      relatedIds: ["sector-1"],
+      seo: seo(
+        "Văn phòng Quận 1 | Web2Go",
+        "Web2Go mở văn phòng giao dịch tại Tầng 8, 123 Nguyễn Huệ, Quận 1, Thành phố Hồ Chí Minh.",
+      ),
+    },
+    {
+      _id: "news-3",
+      _type: "news",
+      status: "published",
+      slug: newsSlugs[2],
+      title: "Công bố chính sách dữ liệu cá nhân",
+      summary:
+        "Web2Go đưa các trang quyền riêng tư, điều khoản và cookie vào nhóm thông tin pháp lý của website.",
+      body: "Ngày 20/1/2026, Web2Go đăng ba văn bản pháp lý trên website: quyền riêng tư, điều khoản và cookie. Người dùng gửi yêu cầu liên quan dữ liệu tới privacy@web2go.vn.",
+      category: "Pháp lý",
+      dateLabel: "2026-01-20",
+      author: "Pháp chế Web2Go",
+      image: scene("Mục văn bản pháp lý trên website Web2Go"),
+      relatedIds: ["sector-3"],
+      seo: seo(
+        "Chính sách dữ liệu cá nhân | Web2Go",
+        "Web2Go công bố chính sách quyền riêng tư, điều khoản sử dụng và cookie.",
+      ),
+    },
+  ],
+  leadership: [
+    {
+      _id: "leader-1",
+      _type: "leadership",
+      status: "published",
+      name: "Nguyễn Minh An",
+      role: "Tổng giám đốc",
+      portrait: scene("Chân dung Nguyễn Minh An, Tổng giám đốc Web2Go"),
+      biography:
+        "Nguyễn Minh An phụ trách định hướng sản phẩm, quan hệ đối tác và nhịp phối hợp giữa các đơn vị trong hệ sinh thái Web2Go.",
+      expertise: ["Điều hành"],
+      order: 1,
+      companyIds: ["subsidiary-1"],
+    },
+    {
+      _id: "leader-2",
+      _type: "leadership",
+      status: "published",
+      name: "Trần Khánh Linh",
+      role: "Giám đốc vận hành",
+      portrait: scene("Chân dung Trần Khánh Linh, Giám đốc vận hành Web2Go"),
+      biography:
+        "Trần Khánh Linh phụ trách quy trình bàn giao, lịch hỗ trợ và chuẩn vận hành cho các dự án đang triển khai.",
+      expertise: ["Vận hành dự án"],
+      order: 2,
+      companyIds: ["subsidiary-3"],
+    },
+    {
+      _id: "leader-3",
+      _type: "leadership",
+      status: "published",
+      name: "Lê Hoàng Nam",
+      role: "Giám đốc kỹ thuật",
+      portrait: scene("Chân dung Lê Hoàng Nam, Giám đốc kỹ thuật Web2Go"),
+      biography:
+        "Lê Hoàng Nam phụ trách kiến trúc phần mềm, tiêu chuẩn kỹ thuật và năng lực tích hợp cho các nhóm sản phẩm.",
+      expertise: ["Kiến trúc phần mềm"],
+      order: 3,
+      companyIds: ["subsidiary-4"],
+    },
+  ],
+  careers: [
+    {
+      _id: "career-1",
+      _type: "career",
+      status: "published",
+      slug: careerSlugs[0],
+      title: "Kỹ sư giao diện",
+      companyId: "subsidiary-1",
+      department: "Web2Go Studio",
+      location: "Thành phố Hồ Chí Minh",
+      workType: "Toàn thời gian",
+      level: "Chuyên viên",
+      description:
+        "Xây dựng giao diện từ thiết kế đã duyệt và kiểm tra trải nghiệm tại các kích thước màn hình từ 375 đến 1440 px.",
+      requirements: [
+        "Kinh nghiệm HTML, CSS và TypeScript",
+        "Làm việc tại Thành phố Hồ Chí Minh hoặc thỏa thuận lai",
+      ],
+      benefits: ["Bảo hiểm theo quy định", "Thiết bị làm việc do công ty cấp"],
+      applicationTarget: "/contact?topic=career",
+      deadline: "2026-12-31",
+      seo: seo(
+        "Kỹ sư giao diện | Web2Go",
+        "Vị trí kỹ sư giao diện tại Web2Go Studio, hạn nộp 31/12/2026.",
+      ),
+    },
+    {
+      _id: "career-2",
+      _type: "career",
+      status: "published",
+      slug: careerSlugs[1],
+      title: "Chuyên viên triển khai",
+      companyId: "subsidiary-2",
+      department: "Web2Go Systems",
+      location: "Thành phố Hồ Chí Minh",
+      workType: "Toàn thời gian",
+      level: "Chuyên viên",
+      description:
+        "Ghi nhận quy trình, chuẩn bị danh sách bàn giao và hướng dẫn người dùng vận hành hệ thống.",
+      requirements: [
+        "Kinh nghiệm làm việc với nhóm nghiệp vụ",
+        "Viết biên bản rõ ràng bằng tiếng Việt",
+      ],
+      benefits: [
+        "Bảo hiểm theo quy định",
+        "Hỗ trợ đi lại khi làm việc tại kho hoặc chi nhánh khách",
+      ],
+      applicationTarget: "/contact?topic=career",
+      deadline: "2026-12-31",
+      seo: seo(
+        "Chuyên viên triển khai | Web2Go",
+        "Vị trí chuyên viên triển khai tại Web2Go Systems, hạn nộp 31/12/2026.",
+      ),
+    },
+  ],
+  partners: [
+    {
+      _id: "partner-1",
+      _type: "partner",
+      status: "published",
+      name: "Đông Á Retail",
+      logo: wordmark("Logo Đông Á Retail"),
+      category: "Bán lẻ",
+      url: null,
+      approvalStatus: "approved",
+      order: 1,
+    },
+    {
+      _id: "partner-2",
+      _type: "partner",
+      status: "published",
+      name: "Mekong Health",
+      logo: wordmark("Logo Mekong Health"),
+      category: "Y tế",
+      url: null,
+      approvalStatus: "approved",
+      order: 2,
+    },
+    {
+      _id: "partner-3",
+      _type: "partner",
+      status: "published",
+      name: "Pacific Ports",
+      logo: wordmark("Logo Pacific Ports"),
+      category: "Logistics",
+      url: null,
+      approvalStatus: "pending",
+      order: 3,
+    },
+    {
+      _id: "partner-4",
+      _type: "partner",
+      status: "published",
+      name: "Sông Hàn Materials",
+      logo: wordmark("Logo Sông Hàn Materials"),
+      category: "Vật tư",
+      url: null,
+      approvalStatus: "pending",
+      order: 4,
+    },
+  ],
+  timeline: [
+    {
+      _id: "timeline-1",
+      _type: "timeline",
+      status: "published",
+      dateLabel: "2018",
+      title: "Thành lập Công ty Cổ phần Công nghệ Web2Go",
+      description:
+        "Web2Go bắt đầu hoạt động tại Thành phố Hồ Chí Minh với định hướng xây dựng sản phẩm web và hệ thống doanh nghiệp.",
+      image: scene("Giấy đăng ký doanh nghiệp Web2Go"),
+      source: "Hồ sơ thành lập Web2Go, 2018",
+      relatedIds: ["sector-1"],
+      order: 1,
+    },
+    {
+      _id: "timeline-2",
+      _type: "timeline",
+      status: "published",
+      dateLabel: "2022",
+      title: "Tách Web2Go Studio và Web2Go Systems",
+      description:
+        "Hai công ty thành viên nhận brief thiết kế và brief nghiệp vụ riêng.",
+      image: scene("Sơ đồ hai công ty thành viên năm 2022"),
+      source,
+      relatedIds: ["sector-2"],
+      order: 2,
+    },
+    {
+      _id: "timeline-3",
+      _type: "timeline",
+      status: "published",
+      dateLabel: "2024",
+      title: "Bàn giao cổng thông tin nội bộ",
+      description: "Cổng nhân sự đầu tiên đi vào dùng tại văn phòng Quận 1.",
+      image: scene("Ngày bàn giao cổng thông tin nội bộ"),
+      source,
+      relatedIds: ["sector-1"],
+      order: 3,
+    },
+    {
+      _id: "timeline-4",
+      _type: "timeline",
+      status: "published",
+      dateLabel: "2025",
+      title: "Thành lập Web2Go Cloud và Web2Go Labs",
+      description:
+        "Bổ sung đơn vị vận hành và đơn vị thử nghiệm trong cùng địa chỉ giao dịch.",
+      image: scene("Sơ đồ bốn công ty thành viên năm 2025"),
+      source,
+      relatedIds: ["sector-3"],
+      order: 4,
+    },
+  ],
+  sustainability: [
+    {
+      _id: "sustainability-1",
+      _type: "sustainability",
+      status: "published",
+      slug: "environment",
+      pillar: "Môi trường vận hành",
+      body: "Web2Go theo dõi điện năng văn phòng và tắt máy chủ thử nghiệm ngoài giờ. Trang này không nêu mục tiêu khí hậu hay chứng nhận môi trường.",
+      goals: ["Ghi điện năng văn phòng theo tháng"],
+      statistics: [
+        {
+          value: "12",
+          unit: "bảng điện đã lưu",
+          period: "2025",
+          source: "Sổ theo dõi điện văn phòng Web2Go 2025",
+        },
+      ],
+      report: {
+        title: "Ghi chú vận hành trách nhiệm 2025",
+        href: "/reports/web2go-responsibility-2025.txt",
+      },
+      image: scene("Đồng hồ điện văn phòng Web2Go"),
+      projectIds: ["project-1"],
+      seo: seo(
+        "Môi trường vận hành | Web2Go",
+        "Web2Go ghi nhận điện năng văn phòng và lịch tắt máy chủ thử nghiệm.",
+      ),
+    },
+    {
+      _id: "sustainability-2",
+      _type: "sustainability",
+      status: "published",
+      slug: "social",
+      pillar: "Trách nhiệm với người làm việc",
+      body: "Web2Go công bố tin tuyển dụng, hợp đồng lao động và bảo hiểm theo luật Việt Nam. Trang này không nêu chỉ số gắn bó hay xếp hạng nơi làm việc.",
+      goals: ["Đăng tin tuyển dụng công khai trên website"],
+      statistics: [
+        {
+          value: "2",
+          unit: "vị trí đang mở",
+          period: "2026",
+          source: "Mục Tuyển dụng trên website Web2Go",
+        },
+      ],
+      report: {
+        title: "Ghi chú vận hành trách nhiệm 2025",
+        href: "/reports/web2go-responsibility-2025.txt",
+      },
+      image: scene("Buổi giới thiệu việc làm tại Web2Go"),
+      projectIds: ["project-2"],
+      seo: seo(
+        "Trách nhiệm với người làm việc | Web2Go",
+        "Web2Go công bố tin tuyển dụng và điều kiện lao động theo luật Việt Nam.",
+      ),
+    },
+    {
+      _id: "sustainability-3",
+      _type: "sustainability",
+      status: "published",
+      slug: "governance",
+      pillar: "Quản trị và công bố",
+      body: "Web2Go đăng điều lệ tóm tắt, đầu mối pháp chế và ba văn bản pháp lý trên website. Module nhà đầu tư vẫn tắt cho đến khi có nghị quyết riêng.",
+      goals: ["Giữ mục pháp lý trên website luôn truy cập được"],
+      statistics: [
+        {
+          value: "3",
+          unit: "văn bản pháp lý công khai",
+          period: "2026",
+          source: "Mục Quyền riêng tư, Điều khoản và Cookie",
+        },
+      ],
+      report: {
+        title: "Ghi chú vận hành trách nhiệm 2025",
+        href: "/reports/web2go-responsibility-2025.txt",
+      },
+      image: scene("Mục quản trị trên website Web2Go"),
+      projectIds: ["project-4"],
+      seo: seo(
+        "Quản trị và công bố | Web2Go",
+        "Web2Go công bố đầu mối pháp chế và văn bản pháp lý trên website.",
+      ),
+    },
+  ],
+  offices: [
+    {
+      _id: "office-1",
+      name: "Văn phòng Thành phố Hồ Chí Minh",
+      address: "Tầng 8, 123 Nguyễn Huệ, Quận 1, Thành phố Hồ Chí Minh",
+      email: "hello@web2go.vn",
+      phone: "+84 28 3822 2000",
+    },
+  ],
+  pages: {
+    about: {
+      id: "about",
+      title: "Giới thiệu Web2Go",
+      body: "Web2Go là tập đoàn công nghệ tập trung vào sản phẩm web, hệ thống doanh nghiệp và vận hành số. Các nhóm Studio, Systems, Cloud và Labs phối hợp từ khâu thiết kế, triển khai đến bàn giao và hỗ trợ. Quan hệ nhà đầu tư hiện chưa mở trên website.",
+      seo: seo(
+        "Giới thiệu | Web2Go",
+        "Web2Go thành lập năm 2018, phát triển sản phẩm web, hệ thống doanh nghiệp và vận hành số.",
+      ),
+    },
+    history: {
+      id: "history",
+      title: "Lịch sử",
+      body: "Web2Go hình thành năm 2018 tại Thành phố Hồ Chí Minh, mở rộng nhóm Studio và Systems năm 2022, bàn giao cổng thông tin nội bộ năm 2024, sau đó bổ sung Cloud và Labs vào năm 2025.",
+      seo: seo(
+        "Lịch sử | Web2Go",
+        "Các mốc 2018, 2022, 2024 và 2025 trong quá trình hình thành Web2Go.",
+      ),
+    },
+    vision: {
+      id: "vision",
+      title: "Tầm nhìn",
+      body: "Web2Go hướng tới việc giữ một bộ sản phẩm số mà khách hàng có thể vận hành sau bàn giao, với tài liệu và đầu mối hỗ trợ rõ ràng. Đây là hướng làm việc, không phải cam kết thị phần.",
+      seo: seo(
+        "Tầm nhìn | Web2Go",
+        "Hướng làm việc của Web2Go: sản phẩm số kèm tài liệu và đầu mối hỗ trợ sau bàn giao.",
+      ),
+    },
+    mission: {
+      id: "mission",
+      title: "Sứ mệnh",
+      body: "Ghi nhận yêu cầu bằng văn bản, bàn giao đúng phạm vi đã ký và giữ kênh hỗ trợ trong thời hạn hợp đồng. Sứ mệnh này mô tả cách làm việc, không phải khẩu hiệu thị trường.",
+      seo: seo(
+        "Sứ mệnh | Web2Go",
+        "Web2Go ghi nhận yêu cầu bằng văn bản, bàn giao đúng phạm vi và giữ kênh hỗ trợ theo hợp đồng.",
+      ),
+    },
+    values: {
+      id: "values",
+      title: "Giá trị",
+      body: "Ba nguyên tắc nội bộ: phạm vi viết rõ trước khi làm, số liệu phải có nguồn, và bản nháp không lên trang công khai. Các nguyên tắc này dùng cho biên tập website và bàn giao dự án.",
+      seo: seo(
+        "Giá trị | Web2Go",
+        "Nguyên tắc nội bộ của Web2Go: phạm vi rõ, số liệu có nguồn, bản nháp không công khai.",
+      ),
+    },
+    governance: {
+      id: "governance",
+      title: "Quản trị",
+      body: "Web2Go vận hành theo ba lớp: định hướng tập đoàn, quản lý đơn vị chuyên môn và kiểm soát phạm vi từng dự án. Thông tin tài chính kiểm toán và công bố nhà đầu tư chưa nằm trong phạm vi website này.",
+      seo: seo(
+        "Quản trị | Web2Go",
+        "Cơ cấu quản trị Web2Go gồm định hướng tập đoàn, đơn vị chuyên môn và kiểm soát phạm vi dự án.",
+      ),
+    },
+    process: {
+      id: "process",
+      title: "Quy trình tuyển dụng",
+      body: "Ứng viên chọn vị trí phù hợp, gửi thông tin qua biểu mẫu liên hệ và nhận phản hồi trong ba ngày làm việc. Web2Go không thu phí ứng viên; thông tin tuyển dụng chỉ được dùng để xem xét cơ hội phù hợp.",
+      seo: seo(
+        "Quy trình tuyển dụng | Web2Go",
+        "Web2Go nhận hồ sơ qua biểu mẫu liên hệ, xác nhận trong ba ngày làm việc và không thu phí ứng viên.",
+      ),
+    },
+    privacy: {
+      id: "privacy",
+      title: "Chính sách quyền riêng tư",
+      body: "Chính sách này mô tả cách Web2Go tiếp nhận và sử dụng họ tên, email, tổ chức, chủ đề và nội dung liên hệ để phản hồi yêu cầu. Dữ liệu được giới hạn trong mục đích liên hệ, được truy cập bởi nhóm phụ trách và được xoá khi hết nhu cầu xử lý. Người dùng có thể liên hệ privacy@web2go.vn để yêu cầu xem, sửa hoặc xoá dữ liệu đã gửi.",
+      seo: seo(
+        "Quyền riêng tư | Web2Go",
+        "Cách Web2Go tiếp nhận, sử dụng và bảo vệ dữ liệu từ biểu mẫu liên hệ và tuyển dụng.",
+      ),
+    },
+    terms: {
+      id: "terms",
+      title: "Điều khoản sử dụng",
+      body: "Website Web2Go cung cấp thông tin về tập đoàn, lĩnh vực, dự án, tuyển dụng và các kênh liên hệ. Nội dung website không phải lời chào bán, lời mời đầu tư, báo giá hay cam kết mức dịch vụ. Người dùng không được sao chép logo, hình ảnh hoặc nội dung thương hiệu cho mục đích thương mại nếu chưa có chấp thuận bằng văn bản.",
+      seo: seo(
+        "Điều khoản sử dụng | Web2Go",
+        "Điều khoản sử dụng website Web2Go, quyền nội dung và giới hạn thông tin công khai.",
+      ),
+    },
+    cookies: {
+      id: "cookies",
+      title: "Chính sách cookie",
+      body: "Website sử dụng cookie thiết yếu để ghi nhớ ngôn ngữ và trạng thái phiên. Công cụ đo lường chỉ được tải sau khi người dùng đồng ý và khi cấu hình nhà cung cấp đã được bật. Web2Go không tải pixel quảng cáo, công cụ chat hoặc mã đo lường trước thời điểm đó. Mọi yêu cầu liên quan cookie có thể gửi tới privacy@web2go.vn.",
+      seo: seo(
+        "Cookie | Web2Go",
+        "Chính sách cookie thiết yếu, đo lường và lựa chọn đồng ý trên website Web2Go.",
+      ),
+    },
+    investors: {
+      id: "investors",
+      title: "Quan hệ nhà đầu tư",
+      body: "Mục quan hệ nhà đầu tư hiện chưa mở. Khi Web2Go có nghị quyết công bố và chính sách thông tin phù hợp, trang này sẽ đăng báo cáo, thông báo và đầu mối IR chính thức.",
+      seo: seo(
+        "Nhà đầu tư | Web2Go",
+        "Mục quan hệ nhà đầu tư của Web2Go chưa mở trên website công khai.",
+      ),
+    },
+    press: {
+      id: "press",
+      title: "Tài nguyên báo chí",
+      body: "Báo chí có thể sử dụng logo Web2Go tại /media/web2go-logo.jpg cho nội dung đã được xác nhận. Việc chỉnh sửa, phối hợp thương hiệu hoặc sử dụng logo trong tài liệu đối tác cần được Web2Go chấp thuận trước. Liên hệ press@web2go.vn để gửi yêu cầu truyền thông.",
+      seo: seo(
+        "Tài nguyên báo chí | Web2Go",
+        "Logo, thông tin truyền thông và đầu mối báo chí của Web2Go.",
+      ),
+    },
+    recruitment: {
+      id: "recruitment",
+      title: "Thông báo tuyển dụng",
+      body: "Thông tin ứng tuyển gửi qua biểu mẫu được dùng để xem xét vị trí phù hợp, liên hệ phỏng vấn và quản lý lịch trao đổi. Web2Go giới hạn quyền truy cập trong nhóm tuyển dụng, lưu trữ trong thời gian cần thiết và không công khai tên, ảnh hoặc lời chứng thực của nhân sự nếu chưa có sự đồng ý.",
+      seo: seo(
+        "Thông báo tuyển dụng | Web2Go",
+        "Cách Web2Go tiếp nhận, sử dụng và bảo vệ dữ liệu ứng viên.",
+      ),
+    },
+    brand: {
+      id: "brand",
+      title: "Sử dụng thương hiệu",
+      body: "Logo Web2Go được dùng trong các tài liệu giới thiệu và nội dung truyền thông đã được phê duyệt. Không được thay đổi tỷ lệ, màu sắc hoặc cấu trúc logo. Việc sử dụng logo cùng tên đối tác, khách hàng hoặc sản phẩm khác cần được Web2Go xem xét trước.",
+      seo: seo(
+        "Sử dụng thương hiệu | Web2Go",
+        "Hướng dẫn sử dụng logo và nhận diện thương hiệu Web2Go.",
+      ),
+    },
+    disclaimer: {
+      id: "disclaimer",
+      title: "Tuyên bố liên hệ",
+      body: "Việc gửi biểu mẫu liên hệ không tạo thành hợp đồng, báo giá, lời mời đầu tư hoặc cam kết giải quyết khiếu nại. Web2Go sẽ chuyển yêu cầu tới đúng nhóm phụ trách và phản hồi theo phạm vi thông tin có thể cung cấp.",
+      seo: seo(
+        "Tuyên bố liên hệ | Web2Go",
+        "Phạm vi xử lý và giới hạn của thông tin gửi qua biểu mẫu liên hệ Web2Go.",
+      ),
+    },
+  },
+  faqs: [
+    {
+      id: "faq-1",
+      question: "Ứng tuyển bằng cách nào?",
+      answer:
+        "Mở vị trí, đọc mô tả, rồi gửi biểu mẫu liên hệ với chủ đề Tuyển dụng. Web2Go xác nhận trong ba ngày làm việc.",
+    },
+    {
+      id: "faq-2",
+      question: "Web2Go có thu phí ứng viên không?",
+      answer: "Không. Mọi vòng tuyển dụng đều không thu phí.",
+    },
+  ],
+};
+
+export function publishedLocalSite() {
+  return localRawSite;
+}

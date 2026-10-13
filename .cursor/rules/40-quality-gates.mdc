@@ -1,0 +1,18 @@
+---
+description: Required engineering quality checks for implementation changes
+globs: "code/**/*.{ts,tsx,css}"
+alwaysApply: false
+---
+
+# Quality Gates
+
+- Keep lint, typecheck, unit tests, integration tests, and production build green.
+- Add focused tests for every new behavior and regression fix.
+- Add Playwright coverage for navigation, primary page flows, forms, keyboard use, and responsive layouts.
+- Check 375, 480, 768, 1024, 1200, and 1440 pixel viewports for overflow and overlap.
+- Test keyboard navigation, focus order, focus return, reduced motion, labels, errors, and media controls.
+- Prevent horizontal scrolling unless explicitly specified for a controlled component.
+- Target Lighthouse scores of at least 90 for Performance, Accessibility, Best Practices, and SEO on key pages.
+- Target LCP at most 2.5 seconds, INP at most 200 milliseconds, and CLS at most 0.1 at p75.
+- Review browser console errors, failed requests, hydration warnings, missing images, and broken links.
+- Do not weaken checks, delete tests, or suppress errors merely to make a gate pass.

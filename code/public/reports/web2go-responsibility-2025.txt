@@ -1,0 +1,10 @@
+Web2Go — DEMO_ONLY operating note for staging
+
+This file is a seed for template review. It is not an audited environmental, social, or governance report.
+
+Legal name: [LEGAL_VERIFY_LEGAL_NAME]
+Enterprise code: [LEGAL_VERIFY_ENTERPRISE_CODE]
+Registered address: [LEGAL_VERIFY_REGISTERED_ADDRESS]
+Effective date: [LEGAL_VERIFY_EFFECTIVE_DATE]
+
+Do not publish this file as a certified disclosure.

@@ -1,0 +1,17 @@
+---
+description: Core context and source-of-truth rules for the corporate website project
+alwaysApply: true
+---
+
+# Project Context
+
+- Build a corporate information website, not ecommerce and not a simple landing page.
+- Optimize for corporate credibility, clear information architecture, brand depth, scalability, mobile UX, performance, SEO, and accessibility.
+- Use `.cursor/specs/corporate-website.spec.md` as the compact source of truth.
+- Read `.cursor/tasks/current-task.md` for active work.
+- Open `.cursor/tasks/implementation-plan.md` only when the active task needs missing detail or after approval to load the next task.
+- Do not reread the legacy Word plan unless the spec lacks information needed for the active task.
+- Never invent company facts, dates, revenue, employee counts, project counts, subsidiaries, certifications, or performance claims.
+- Use `[PLACEHOLDER]` for missing business data and keep it out of production releases.
+- Follow the recommended direction named Corporate Systems Premium.
+- Keep changes limited to the active task. Do not implement future tasks early.

@@ -1,0 +1,21 @@
+---
+description: Content, CMS data, SEO, and corporate evidence rules
+globs: "code/**/*.{ts,tsx,md,mdx,json}"
+alwaysApply: false
+---
+
+# Content CMS And SEO
+
+- Use concise, confident corporate language with concrete subjects and verifiable evidence.
+- Avoid generic slogans and unsupported words such as leading, pioneering, world-class, or sustainable.
+- Every published statistic must include value, unit, period, and source.
+- Model relations between sectors, subsidiaries, projects, news, leadership, careers, partners, timeline, and sustainability.
+- Keep slugs stable and unique; use references rather than duplicated content.
+- Provide per-page title, description, canonical, Open Graph image, and indexability controls.
+- Generate Organization, WebSite, BreadcrumbList, Article, and JobPosting schema where valid.
+- Use meaningful image filenames and alt text based on purpose; decorative images use empty alt text.
+- Draft, preview, internal API, and noncanonical filter URLs must not enter the public sitemap.
+- Keep `[PLACEHOLDER]` visible in nonproduction content and block production release while required placeholders remain.
+- Demo facts, legal copy, contact channels, domains, and policy text must be marked `DEMO_ONLY` or `LEGAL_VERIFY_*` until the owner supplies an approved source.
+- Never convert a plausible-looking demo value into an official enterprise code, registered address, ownership statement, certification, financial claim, or legal conclusion.
+- Production release is blocked while `[PLACEHOLDER]`, `DEMO_ONLY`, `LEGAL_VERIFY_*`, sample domains, or sample contacts remain in production-required content.

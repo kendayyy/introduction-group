@@ -1,0 +1,21 @@
+---
+description: Sequential task workflow with review, testing, and user approval gates
+alwaysApply: true
+---
+
+# Task Gates
+
+1. Read only the project spec and `.cursor/tasks/current-task.md` before implementation.
+2. Confirm the active task ID, scope, dependencies, files, acceptance criteria, and test commands.
+3. Change its status from `TODO` to `IN_PROGRESS` before editing code.
+4. Implement only that task. Record discovered follow-up work under the relevant future task.
+5. Review the complete diff for scope creep, regressions, accessibility, responsive behavior, and placeholders.
+6. Run every test command listed for the task plus affected project checks.
+7. A task may become `REVIEW` only when implementation is complete and all required checks pass.
+8. Report changed files, behavior, test commands, results, and remaining risks.
+9. Wait for the user to reply `Duyệt Txxx` before changing the task to `DONE` or starting another task.
+10. After approval, update the backlog status, copy the next task into `current-task.md`, and then begin a new work cycle.
+11. If a test fails, keep the task `IN_PROGRESS`, fix it, and rerun the full gate.
+12. Never skip, merge, or reorder tasks without recording the decision and receiving user approval.
+13. Do not claim tests passed unless their commands were actually executed successfully.
+
